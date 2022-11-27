@@ -79,6 +79,7 @@ INSERT INTO `Employee` (`Employee_ID`, `Emp_Name`, `Emp_Gender`, `Designation`, 
 ('MANG957','Aman kumar','M','MANAGER','1992-01-21',65000,'Boaring road, patna','Aman@outlook.com','HPC805103','MANG957'),
 ('FDNG652','Hradha Nayar','F','NOZZEL PERSON','1987-08-09',35000,'Pandit Bigha, Gaya','hradha@hotmail.com','HPC805103','FDEW353'),
 ('FDSNG43','Hemant','M','CLEANING','1995-01-23',20000,'Kanvada, Magrol road, Surat','hemant@gmail.com','OIL380013',NULL),
+('SNGED76','Animesh','M','NOZZEL PERSON','1982-08-13',45000,'Industrial Development Area, Sector 16, Gurugram, Haryana' ,'animesh@gmail.com','OIL380013',NULL),
 ('FDEW353','Saideepak Reddy','M','NOZZEL PERSON','2000-06-30',40000,'Lodwadih, Topchanchi, Jharkhand','saideepak@outlook.com','HPC805103','MANG957');
 
 
@@ -180,12 +181,12 @@ CREATE TABLE IF NOT EXISTS `Serves`(
    PRIMARY KEY(`Employee_ID`, `Customer_Code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- INSERT INTO (`Employee_ID`, `Customer_Code`) VALUES
--- ('',''),
--- ('',''),
--- ('',''),
--- ('',''),
--- ('','');
+INSERT INTO `Serves` (`Employee_ID`, `Customer_Code`) VALUES
+('FDEW353','SFG252'),
+('FDEW353','CGM235'),
+('FDEW353','BFR426'),
+('FDNG652','SFG252'),
+('FDNG652','CGM235');
 
 CREATE TABLE IF NOT EXISTS `Sales_Manage`(
    `Employee_ID` varchar(10) NOT NULL,
@@ -194,12 +195,11 @@ CREATE TABLE IF NOT EXISTS `Sales_Manage`(
    PRIMARY KEY(`Employee_ID`, `Sales_No`, `Date`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- INSERT INTO (`Employee_ID`, `Sales_No`, `Date`) VALUES
--- ('','',''),
--- ('','',''),
--- ('','',''),
--- ('','',''),
--- ('','',''),
--- ('','','');
+INSERT INTO `Sales_Manage`(`Employee_ID`, `Sales_No`, `Date`) VALUES
+('FDEW353','FGHGE32','2022-11-20'),
+('FDEW353','IUOSF98','2019-08-19'),
+('FDNG652','QWRGH87','2022-11-22'),
+('SNGED76','GDZJD24','2019-08-19'),
+('SNGED76','MVBER67','2022-11-20');
 
 COMMIT;
