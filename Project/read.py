@@ -29,7 +29,7 @@ def read_for_Customer():
         st.dataframe(df)
 
 def read_for_Invoice():
-    result = view_all_customer_data()
+    result = view_all_Customer_data()
     df = pd.DataFrame(result, columns=['Invoice_No' , 'Date'  ,'Time' , 'Payment_Type' , 'Fuel_Amount' , 'Fuel_Type' , 'Discount' , 'Total_Price' , 'Customer_Code'])
     with st.expander("View all Invoices"):
         st.dataframe(df)
