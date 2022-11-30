@@ -73,7 +73,7 @@ def delete_for_Customer():
 
 def delete_for_Invoice():
     result = view_all_Invoice_data()
-    df = pd.DataFrame(result, columns=['Invoice_No' , 'Date' ,'Time' , 'Invoice_Type' , 'Fuel_Amount' , 'Fuel_Type' , 'Discount' , 'Total_Price' , 'Customer_Code'])
+    df = pd.DataFrame(result, columns=['Invoice_No' , 'Date' , 'Invoice_Type' , 'Fuel_Amount' , 'Fuel_Type' , 'Discount' , 'Total_Price' , 'Customer_Code'])
     with st.expander("View all Invoices"):
         st.dataframe(df)
 
@@ -84,7 +84,7 @@ def delete_for_Invoice():
         delete_data_Invoice(selected_Invoice)
         st.success("transaction has been deleted successfully")
     result2 = view_all_Invoice_data()
-    df2 = pd.DataFrame(result2, columns=['Invoice_No' , 'Date' ,'Time' , 'Invoice_Type' , 'Fuel_Amount' , 'Fuel_Type' , 'Discount' , 'Total_Price' , 'Customer_Code'])
+    df2 = pd.DataFrame(result2, columns=['Invoice_No' , 'Date' , 'Invoice_Type' , 'Fuel_Amount' , 'Fuel_Type' , 'Discount' , 'Total_Price' , 'Customer_Code'])
     with st.expander("Updated data"):
         st.dataframe(df2)
 

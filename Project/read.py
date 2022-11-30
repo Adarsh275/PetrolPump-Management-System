@@ -18,19 +18,19 @@ def read_for_Owners():
 
 def read_for_Employee():
     result = view_all_Employee_data()
-    df = pd.DataFrame(result, columns=['Employee_ID', 'Emp_Name',  'Emp_Gender', 'Designation', 'DOB', 'Salary',  'Emp_Address', 'Email_ID' , 'Petrolpump_No', 'Manager_ID'])
+    df = pd.DataFrame(result, columns=['Employee_ID', 'Emp_Name', 'Emp_Gender', 'Designation', 'DOB', 'Salary',  'Emp_Address', 'Email_ID' , 'Petrolpump_No', 'Manager_ID'])
     with st.expander("View all Employees"):
         st.dataframe(df)
 
 def read_for_Customer():
     result = view_all_Customer_data()
-    df = pd.DataFrame(result, columns=['Customer_Code' , 'C_Name' , 'Phone_No' , 'Email_ID' , 'Gender', 'City' , 'Age'])
+    df = pd.DataFrame(result, columns=['Customer_Code', 'C_Name' , 'Phone_No' , 'Email_ID' , 'Gender', 'City' , 'Age'])
     with st.expander("View all Customers"):
         st.dataframe(df)
 
 def read_for_Invoice():
-    result = view_all_Customer_data()
-    df = pd.DataFrame(result, columns=['Invoice_No' , 'Date'  ,'Time' , 'Payment_Type' , 'Fuel_Amount' , 'Fuel_Type' , 'Discount' , 'Total_Price' , 'Customer_Code'])
+    result = view_all_Invoice_data()
+    df = pd.DataFrame(result, columns=['Invoice_No' , 'Date','Payment_Type', 'Fuel_Amount' , 'Fuel_Type' , 'Discount' , 'Total_Price' , 'Customer_Code'])
     with st.expander("View all Invoices"):
         st.dataframe(df)
 

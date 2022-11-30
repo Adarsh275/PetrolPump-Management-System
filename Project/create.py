@@ -7,13 +7,13 @@ def create_for_Petrolpump():
         Registration_No = st.text_input("Registration_No:")
         Petrolpump_Name = st.text_input("Petrolpump_Name:")
         Company_Name = st.text_input("Company_Name:")
-        Opening_Year = st.date_input("Opening_Year:")
+        Opening_Year = st.number_input("Opening_Year:")
         State = st.text_input("State:")
         City = st.text_input("City:")
     
-    if st.button("Add gym Details"):
+    if st.button("Add Petrolpump Details"):
         add_Petrolpump_data(Registration_No,Petrolpump_Name,Company_Name,Opening_Year,State,City)
-        st.success("Successfully added Petrolpump details: {}".format())
+        st.success("Successfully added Petrolpump details: {}".format(Registration_No))
 
 
 def create_for_Owners():
@@ -27,7 +27,7 @@ def create_for_Owners():
         
     if st.button("Add Owners Details"):
         add_Owners_data(Owner_Name, Contact_NO, DOB, Gender, Address, Partnership)
-        st.success("Successfully added Owners details: {}".format())
+        st.success("Successfully added Owners details: {}".format(Owner_Name))
 
 
 def create_for_Employee():
@@ -45,7 +45,7 @@ def create_for_Employee():
 
     if st.button("Add Employee Details"):
         add_Employee_data(Employee_ID, Emp_Name,  Emp_Gender,   Designation,  DOB, Salary,  Emp_Address, Email_ID , Petrolpump_No, Manager_ID)
-        st.success("Successfully added Employee details: {}".format())
+        st.success("Successfully added Employee details: {}".format(Employee_ID))
 
 
 def create_for_Customer():
@@ -60,26 +60,25 @@ def create_for_Customer():
     
     if st.button("Add Customer Details"):
         add_Customer_data(Customer_Code , C_Name , Phone_No  , Email_ID , Gender,  City , Age)
-        st.success("Successfully added Customer details: {}".format())
+        st.success("Successfully added Customer details: {}".format(Customer_Code))
 
 
 
 def create_for_Invoice():
     with st.container():
         Invoice_No=st.text_input(" Invoice_No:")
-        Date=st.dataframe("Date")
-        Time=st.time_input("Time:")
+        Date=st.date_input("Date:")
         Payment_Type=st.text_input("Payment_Type:")
         Fuel_Amount=st.number_input("Fuel_Amount:")
-        Fuel_Type=st.number_input("Fuel_Type:")
+        Fuel_Type=st.text_input("Fuel_Type:")
         Discount=st.number_input("Discount:")
         Total_Price=st.number_input("Total_Price:")
         Customer_Code=st.text_input("Customer_Code:")
 
         
     if st.button("Add Invoice Details"):
-        add_Invoice_data(Invoice_No , Date  ,Time ,  Payment_Type , Fuel_Amount , Fuel_Type , Discount  , Total_Price , Customer_Code)
-        st.success("Successfully added Invoice details: {}".format())
+        add_Invoice_data(Invoice_No , Date , Payment_Type , Fuel_Amount , Fuel_Type , Discount  , Total_Price , Customer_Code)
+        st.success("Successfully added Invoice details: {}".format(Invoice_No))
 
 def create_for_Tanker():
     with st.container():
@@ -94,4 +93,4 @@ def create_for_Tanker():
 
     if st.button("Add Tanker Details"):
         add_Tanker_data(Tanker_ID  , Capacity,  pressure,  Fuel_ID , Fuel_Amount, Fuel_Name , Fuel_Price , Petrolpump_No)
-        st.success("Successfully added Tanker details: {}".format())
+        st.success("Successfully added Tanker details: {}".format(Tanker_ID))
