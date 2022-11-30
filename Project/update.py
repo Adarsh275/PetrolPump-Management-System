@@ -167,9 +167,9 @@ def update_for_Invoice():
     df = pd.DataFrame(result, columns=['Invoice_No', 'Date' , 'Payment_Type', 'Fuel_Amount', 'Fuel_Type', 'Discount', 'Total_Price', 'Customer_Code'])
     with st.expander("Current Invoice details"):
         st.dataframe(df)
-    list_of_Invoices = [i[0] for i in view_only_Invoice_No()]
+    list_of_Invoice = [i[0] for i in view_only_Invoice_No()]
     #print(list_of_Petrolpump)
-    selected_Invoice = st.selectbox("Invoices to Edit", list_of_Invoices)
+    selected_Invoice = st.selectbox("Invoice to Edit", list_of_Invoice)
     #print(selected_Petrolpump)
     selected_result = get_all_info_Invoice(selected_Invoice)
     #print(selected_result)

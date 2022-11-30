@@ -37,7 +37,7 @@ def create_for_Employee():
         Emp_Gender = st.text_input("Emp_Gender:")
         Designation = st.text_input(" Designation:")
         DOB= st.date_input("DOB:")
-        Salary = st.number_input("manager id:")
+        Salary = st.number_input("Salary:")
         Emp_Address=st.text_input("Emp_Address:")
         Email_ID=st.text_input("Email_ID:")
         Petrolpump_No=st.text_input("Petrolpump_No:")

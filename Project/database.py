@@ -144,31 +144,31 @@ def edit_Petrolpump_data(new_Petrolpump_Name, new_Company_Name, new_Opening_Year
 def edit_Owners_data(new_Contact_NO, new_DOB, new_Gender,new_Address, new_Partnership, Owner_Name):
     c.execute("update Owners set Contact_NO=%s, DOB=%s, Gender=%s, Address=%s, Partnership=%s where Owner_Name=%s", (new_Contact_NO, new_DOB, new_Gender,new_Address, new_Partnership, Owner_Name))
     mydb.commit()
-    data = view_all_Owners_data
+    data = view_all_Owners_data()
     return data
 
 def edit_Employee_data(new_Emp_Name, new_Emp_Gender,  new_Designation, new_DOB,new_Salary,  new_Emp_Address, new_Email_ID , new_Petrolpump_No, new_Manager_ID, Employee_ID):
-    c.execute("update Employee set Emp_Name=%s,  Emp_Gender=%s,   Designation=%s,  DOB, Salary=%s,  Emp_Address=%s, Email_ID=%s, Petrolpump_No=%s, Manager_ID=%s where Employee_ID=%s", (new_Emp_Name, new_Emp_Gender, new_Designation, new_DOB,new_Salary, new_Emp_Address, new_Email_ID ,new_Petrolpump_No, new_Manager_ID, Employee_ID))
+    c.execute("update Employee set Emp_Name=%s,  Emp_Gender=%s,   Designation=%s,  DOB=%s, Salary=%s,  Emp_Address=%s, Email_ID=%s, Petrolpump_No=%s, Manager_ID=%s where Employee_ID=%s", (new_Emp_Name, new_Emp_Gender, new_Designation, new_DOB,new_Salary, new_Emp_Address, new_Email_ID ,new_Petrolpump_No, new_Manager_ID, Employee_ID))
     mydb.commit()
-    data = view_all_Employee_data
+    data = view_all_Employee_data()
     return data
 
 def edit_Customer_data(new_C_Name , new_Phone_No  , new_Email_ID , new_Gender,  new_City , new_Age, Customer_Code):
     c.execute("update Customer set C_Name=%s , Phone_No=%s , Email_ID=%s , Gender=%s,  City=%s , Age=%s where Customer_Code=%s", (new_C_Name , new_Phone_No , new_Email_ID , new_Gender, new_City , new_Age, Customer_Code))
     mydb.commit()
-    data = view_all_Customer_data
+    data = view_all_Customer_data()
     return data
 
-def edit_Invoice_data( new_Date  ,new_Time , new_Payment_Type , new_Fuel_Amount , new_Fuel_Type , new_Discount  ,new_Total_Price , new_Customer_Code, Invoice_No):
-    c.execute("update Invoice set Date=%s ,  Payment_Type=%s , Fuel_Amount=%s , Fuel_Type=%s , Discount=%s  , Total_Price=%s , Customer_Code=%s where Invoice_No=%s", (new_Date  ,new_Time , new_Payment_Type , new_Fuel_Amount , new_Fuel_Type , new_Discount  ,new_Total_Price , new_Customer_Code, Invoice_No))
+def edit_Invoice_data( new_Date , new_Payment_Type , new_Fuel_Amount , new_Fuel_Type , new_Discount  ,new_Total_Price , new_Customer_Code, Invoice_No):
+    c.execute("update Invoice set Date=%s ,  Payment_Type=%s , Fuel_Amount=%s , Fuel_Type=%s , Discount=%s  , Total_Price=%s , Customer_Code=%s where Invoice_No=%s", (new_Date , new_Payment_Type , new_Fuel_Amount , new_Fuel_Type , new_Discount  ,new_Total_Price , new_Customer_Code, Invoice_No))
     mydb.commit()
-    data = view_all_Invoice_data
+    data = view_all_Invoice_data()
     return data
 
 def edit_Tanker_data(new_Capacity,  new_pressure,  new_Fuel_ID , new_Fuel_Amount, new_Fuel_Name , new_Fuel_Price ,new_Petrolpump_No, Tanker_ID):
-    c.execute("update Tanker_ID set Capacity=%s,  pressure=%s,  Fuel_ID=%s, Fuel_Amount=%s, Fuel_Name=%s, Fuel_Price=%s, Petrolpump_No=%s where Tanker_ID=%s", (new_Capacity,  new_pressure,  new_Fuel_ID , new_Fuel_Amount, new_Fuel_Name , new_Fuel_Price ,new_Petrolpump_No, Tanker_ID))
+    c.execute("update Tanker set Capacity=%s,  pressure=%s,  Fuel_ID=%s, Fuel_Amount=%s, Fuel_Name=%s, Fuel_Price=%s, Petrolpump_No=%s where Tanker_ID=%s", (new_Capacity,  new_pressure,  new_Fuel_ID , new_Fuel_Amount, new_Fuel_Name , new_Fuel_Price ,new_Petrolpump_No, Tanker_ID))
     mydb.commit()
-    data = view_all_Tanker_data
+    data = view_all_Tanker_data()
     return data
 
 def delete_data_Petrolpump(selected_Petrolpump):
