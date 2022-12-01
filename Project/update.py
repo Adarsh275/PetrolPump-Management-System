@@ -7,17 +7,15 @@ from database import *
 
 def update_for_Petrolpump():
     result = view_all_Petrolpump_data()
-    # st.write(result)
     df = pd.DataFrame(result, columns=['Registration_No','Petrolpump_Name','Company_Name','Opening_Year','State','City'])
     with st.expander("Current Petrolpump details"):
         st.dataframe(df)
     list_of_Petrolpump = [i[0] for i in view_only_Registration_No()]
-    #print(list_of_Petrolpump)
+    
     selected_Petrolpump = st.selectbox("Petrolpumps to Edit", list_of_Petrolpump)
-    #print(selected_Petrolpump)
+    
     selected_result = get_all_info_Petrolpump(selected_Petrolpump)
-    #print(selected_result)
-    # st.write(selected_result)
+   
     if selected_result:
         Registration_No = selected_result[0][0]
         Petrolpump_Name = selected_result[0][1]
@@ -44,17 +42,16 @@ def update_for_Petrolpump():
 
 def update_for_Owners():
     result = view_all_Owners_data()
-    # st.write(result)
+    
     df = pd.DataFrame(result, columns=['Owner_Name', 'Contact_NO', 'DOB', 'Gender', 'Address', 'Partnership'])
     with st.expander("Current Owners details"):
         st.dataframe(df)
     list_of_Owners = [i[0] for i in view_only_Owner_Name()]
-    #print(list_of_Petrolpump)
+   
     selected_Owners = st.selectbox("Owners to Edit", list_of_Owners)
-    #print(selected_Petrolpump)
+   
     selected_result = get_all_info_Owners(selected_Owners)
-    #print(selected_result)
-    # st.write(selected_result)
+    
     if selected_result:
         Owner_Name = selected_result[0][0]
         Contact_NO = selected_result[0][1]
@@ -80,17 +77,16 @@ def update_for_Owners():
 
 def update_for_Employee():
     result = view_all_Employee_data()
-    # st.write(result)
+   
     df = pd.DataFrame(result, columns=['Employee_ID', 'Emp_Name', 'Emp_Gender', 'Designation','DOB', 'Salary', 'Emp_Address', 'Email_ID' , 'Petrolpump_No', 'Manager_ID'])
     with st.expander("Current Employee details"):
         st.dataframe(df)
     list_of_Employee = [i[0] for i in view_only_Employee_ID()]
-    #print(list_of_Petrolpump)
+   
     selected_Employee = st.selectbox("Employee to Edit", list_of_Employee)
-    #print(selected_Petrolpump)
+    
     selected_result = get_all_info_Employee(selected_Employee)
-    #print(selected_result)
-    # st.write(selected_result)
+    
     if selected_result:
         Employee_ID = selected_result[0][0]
         Emp_Name = selected_result[0][1]

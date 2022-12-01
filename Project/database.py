@@ -194,3 +194,17 @@ def delete_data_Invoice(selected_Invoice):
 def delete_data_Tanker(selected_Tanker):
     c.execute('DELETE FROM Tanker WHERE Tanker_ID="{}"'.format(selected_Tanker))
     mydb.commit()
+
+
+# def procedure_execute(query):
+#     c.execute(query)
+#     if "call" in query.lower():
+#         return None
+#     return c.fetchall()
+
+
+# def query_execute(query):
+#     c.execute(query)
+#     if "call" in query.lower():
+#         return None
+#     return c.fetchall()

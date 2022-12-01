@@ -11,14 +11,14 @@ from update import *
 
 def main():
    st.title("Petrol Pump Management System")
-   menu = ["PetrolPump", "Owners", "Employee", "Customer","Invoice", "Tanker","Custom Query"]
-   choice = st.sidebar.selectbox("Menu", menu)
+   menu = ["PetrolPump", "Owners", "Employee", "Customer","Invoice", "Tanker","Query"]
+   choice = st.sidebar.selectbox("Tables", menu)
 
    create_table()
    
    if choice == "PetrolPump":
       menu = ["Add", "View", "Update", "remove"]
-      choice2 = st.sidebar.selectbox("Menu", menu)
+      choice2 = st.sidebar.selectbox("CRUD Operations", menu)
       if choice2 == "Add":
          st.subheader("Enter Petrolpump Details:")
          create_for_Petrolpump()
@@ -34,7 +34,7 @@ def main():
 
    elif choice == "Owners":
       menu = ["Add", "View", "Update", "Remove"]
-      choice2 = st.sidebar.selectbox("Menu", menu)
+      choice2 = st.sidebar.selectbox("CRUD Operations", menu)
       if choice2 == "Add":
             st.subheader("Enter Owners Details:")
             create_for_Owners()
@@ -50,7 +50,7 @@ def main():
 
    elif choice == "Employee":
       menu = ["Add", "View", "Update", "Remove"]
-      choice2 = st.sidebar.selectbox("Menu", menu)
+      choice2 = st.sidebar.selectbox("CRUD Operations", menu)
       if choice2 == "Add":
          st.subheader("Enter Employee Details:")
          create_for_Employee()
@@ -66,7 +66,7 @@ def main():
 
    elif choice == "Customer":
      menu = ["Add", "View", "Update", "Remove"]
-     choice2 = st.sidebar.selectbox("Menu", menu)
+     choice2 = st.sidebar.selectbox("CRUD Operations", menu)
      if choice2 == "Add":
          st.subheader("Enter trainer Details:")
          create_for_Customer()
@@ -82,7 +82,7 @@ def main():
 
    elif choice == "Invoice":
      menu = ["Add", "View", "Update", "Remove"]
-     choice2 = st.sidebar.selectbox("Menu", menu)
+     choice2 = st.sidebar.selectbox("CRUD Operations", menu)
      if choice2 == "Add":
          st.subheader("Enter Invoice Details:")
          create_for_Invoice()
@@ -98,7 +98,7 @@ def main():
 
    elif choice == "Tanker":
      menu = ["Add", "View", "Update", "Remove"]
-     choice2 = st.sidebar.selectbox("Menu", menu)
+     choice2 = st.sidebar.selectbox("CRUD Operations", menu)
      if choice2 == "Add":
          st.subheader("Enter Tanker Details:")
          create_for_Tanker()
@@ -113,12 +113,15 @@ def main():
          delete_for_Tanker()
 
 
-   elif choice == "Custom Query":
-      query = st.text_input("Enter Your Query:")
-      if st.button("Run Query"):
-         c.execute(query)
-         data = c.fetchall()
-         st.dataframe(data)
+   elif choice == "Query":
+      menu = ["Custom Query"]
+      choice2 = st.sidebar.selectbox("Query", menu)
+      if choice2 == "Custom Query":
+         query = st.text_input("Enter Your Query:")
+         if st.button("Run Query"):
+            c.execute(query)
+            data = c.fetchall()
+            st.dataframe(data)
 
    else:
       st.subheader("About tasks")
