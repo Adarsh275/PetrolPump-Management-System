@@ -110,8 +110,11 @@ def update_for_Employee():
             new_Manager_ID= st.text_input("Manager_ID:", Manager_ID)
 
         if st.button("Update Employee"):
-            edit_Employee_data(new_Emp_Name, new_Emp_Gender,  new_Designation, new_DOB, new_Salary,  new_Emp_Address, new_Email_ID , new_Petrolpump_No, new_Manager_ID, Employee_ID)
-            st.success("Successfully updated")
+            try:
+                edit_Employee_data(new_Emp_Name, new_Emp_Gender,  new_Designation, new_DOB, new_Salary,  new_Emp_Address, new_Email_ID , new_Petrolpump_No, new_Manager_ID, Employee_ID)
+                st.success("Successfully updated")
+            except Exception as err:
+                st.exception(err)
 
     result2 = view_all_Employee_data()
     df2 = pd.DataFrame(result2, columns=['Employee_ID', 'Emp_Name', 'Emp_Gender', 'Designation','DOB', 'Salary', 'Emp_Address', 'Email_ID' , 'Petrolpump_No', 'Manager_ID'])

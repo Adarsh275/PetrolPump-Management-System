@@ -59,11 +59,11 @@ CREATE TRIGGER salary_check
 BEFORE UPDATE
 ON Employee FOR EACH ROW
 BEGIN
-declare salary int(7);
+declare WAGE int(7);
 declare error_msg varchar(225);
 set error_msg = ("Error: Insufficient Salary For Living");
-set Salary = new.Salary;
-if salary < 20000 then
+set WAGE = new.WAGE;
+if salary < 300000 then
 signal sqlstate '45000'
 set MESSAGE_TEXT = error_msg;
 end if;
