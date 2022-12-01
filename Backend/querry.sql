@@ -52,3 +52,70 @@ SELECT Registration_No from Petrolpump INTERSECT SELECT Petrolpump_No from Emplo
 
 --  4 --
 SELECT  C_Name from Customer UNION SELECT Owner_Name from Owners;
+
+--  Trigger --
+DELIMITER $$
+CREATE TRIGGER salary_check 
+BEFORE UPDATE
+ON Employee FOR EACH ROW
+BEGIN
+declare salary int(7);
+declare error_msg varchar(225);
+set error_msg = ("Error: Insufficient Salary For Living");
+set Salary = new.Salary;
+if salary < 20000 then
+signal sqlstate '45000'
+set MESSAGE_TEXT = error_msg;
+end if;
+END $$
+
+DELIMITER ;
+
+--  to drop trigger 
+drop trigger salary_check;
+
+-- text 
+UPDATE Employee SET Salary = 15000 WHERE Email_ID = "sfeer334";
+
+
+
+
+-- Function 
+DELIMITER $$
+CREATE FUNCTION `TOTAL_AMOUNT`(`TID` VARCHAR(10)) RETURNS float
+    DETERMINISTIC
+BEGIN
+	
+    DECLARE BILL FLOAT;
+    DECLARE RATE FLOAT;
+    DECLARE VOL FLOAT;
+    
+    SET RATE = (SELECT FUEL_PRICE FROM TANKER WHERE TANKER_ID = TID);
+    SET VOL = (SELECT FUEL_AMOUNT FROM TANKER WHERE TANKER_ID = TID);
+    
+    SET BILL = RATE * VOL;
+    
+    RETURN BILL;
+    
+END$$
+DELIMITER ;
+
+-- TO EXECUTE
+
+SET @p0='BR6872'; SELECT `TOTAL_AMOUNT`(@p0) AS `TOTAL_AMOUNT`;
+
+--  Procedure
+
+DELIMITER $$
+create procedure p()
+begin
+SELECT PetrolPump.Registration_No FROM PetrolPump INNER JOIN Employee ON PetrolPump.Registration_No = Employee.Petrolpump_No;
+END $$
+
+--  Modification --
+
+DELIMITER $$
+create procedure Modify()
+begin
+select total_sales, sales_amount from sales where month(date) = 11;
+END $$
