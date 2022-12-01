@@ -105,8 +105,7 @@ INSERT INTO `Customer` (`Customer_Code`, `C_Name`, `Phone_No`, `Email_ID`, `Gend
 
 CREATE TABLE IF NOT EXISTS `Invoice`(
    `Invoice_No` varchar(10) NOT NULL,
-   `Date` date NOT NULL, 
-   `Time` time NOT NULL, 
+   `Date` date NOT NULL,
    `Payment_Type` varchar(20) NOT NULL,
    `Fuel_Amount` float(15) DEFAULT NULL,
    `Fuel_Type` varchar(15) DEFAULT NULL,
@@ -116,12 +115,12 @@ CREATE TABLE IF NOT EXISTS `Invoice`(
    PRIMARY KEY(`Invoice_No`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO `Invoice` (`Invoice_No`, `Date`, `Time`, `Payment_Type`, `Fuel_Amount`, `Fuel_Type`, `Discount`, `Total_Price`, `Customer_Code`) VALUES
-('XC34','2022-11-20','22:55:10','Cash',7,'PetrolE10',10,640.83,'BFR426'),
-('NR43','2022-11-20','14:24:34','UPI', 5.4,'Gasoline91',NULL, 578.07,'GHE785'),
-('MN34','2020-06-30','21:26:09','Credit Card', 15.8,'Diesel',7.5, 1284.51,'OUI325'),
-('FG43','2022-10-27','16:06:34','UPI', 4.9,'Gasoline91',5, 498.32,'SFG252'),
-('DS85','2019-08-19','09:38:49','Debit Card', 6.8,'Diesel',NULL, 597.65,'OUI325');
+INSERT INTO `Invoice` (`Invoice_No`, `Date`, `Payment_Type`, `Fuel_Amount`, `Fuel_Type`, `Discount`, `Total_Price`, `Customer_Code`) VALUES
+('XC34','2022-11-20','Cash',7,'PetrolE10',10,640.83,'BFR426'),
+('NR43','2022-11-20','UPI', 5.4,'Gasoline91',NULL, 578.07,'GHE785'),
+('MN34','2020-06-30','Credit Card', 15.8,'Diesel',7.5, 1284.51,'OUI325'),
+('FG43','2022-10-27','UPI', 4.9,'Gasoline91',5, 498.32,'SFG252'),
+('DS85','2019-08-19','Debit Card', 6.8,'Diesel',NULL, 597.65,'OUI325');
 
 
 CREATE TABLE IF NOT EXISTS `Sales`(
