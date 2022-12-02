@@ -208,3 +208,15 @@ def delete_data_Tanker(selected_Tanker):
 #     if "call" in query.lower():
 #         return None
 #     return c.fetchall()
+
+def TOTAL_Amount(tanker_id):
+    query = "SET @p0='{}';".format(tanker_id)
+    c.execute(query)
+    print(query)
+
+    query = "SELECT `TOTAL_AMOUNT`(@p0) AS `TOTAL_AMOUNT`;"
+    c.execute(query)
+    print(query)
+    result = c.fetchall()
+    print(result)
+    return result
