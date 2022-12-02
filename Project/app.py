@@ -114,7 +114,7 @@ def main():
 
 
    elif choice == "Query":
-      menu = ["Custom Query"]
+      menu = ["Custom Query","Function"]
       choice2 = st.sidebar.selectbox("Query", menu)
       if choice2 == "Custom Query":
          query = st.text_input("Enter Your Query:")
@@ -122,9 +122,18 @@ def main():
             c.execute(query)
             data = c.fetchall()
             st.dataframe(data)
+      elif choice2 == "Function":
+         net_value()
 
    else:
       st.subheader("About tasks")
+
+def net_value():
+   tanker_id = st.text_input("Enter Tanker ID:")
+   result = TOTAL_Amount(tanker_id)
+   if st.button("RUN Function"):
+      df2=pd.DataFrame(result, columns = ["Total Amount"])
+      st.dataframe(df2)
 
 if __name__ == '__main__':
    main()

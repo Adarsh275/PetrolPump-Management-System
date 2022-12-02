@@ -1,5 +1,3 @@
-import datetime
-
 import pandas as pd
 import streamlit as st
 from database import *
@@ -110,8 +108,11 @@ def update_for_Employee():
             new_Manager_ID= st.text_input("Manager_ID:", Manager_ID)
 
         if st.button("Update Employee"):
-            edit_Employee_data(new_Emp_Name, new_Emp_Gender,  new_Designation, new_DOB, new_Salary,  new_Emp_Address, new_Email_ID , new_Petrolpump_No, new_Manager_ID, Employee_ID)
-            st.success("Successfully updated")
+            try:
+                edit_Employee_data(new_Emp_Name, new_Emp_Gender,  new_Designation, new_DOB, new_Salary,  new_Emp_Address, new_Email_ID , new_Petrolpump_No, new_Manager_ID, Employee_ID)
+                st.success("Successfully updated")
+            except Exception as err:
+                st.exception(err)
 
     result2 = view_all_Employee_data()
     df2 = pd.DataFrame(result2, columns=['Employee_ID', 'Emp_Name', 'Emp_Gender', 'Designation','DOB', 'Salary', 'Emp_Address', 'Email_ID' , 'Petrolpump_No', 'Manager_ID'])
@@ -121,17 +122,12 @@ def update_for_Employee():
 
 def update_for_Customer():
     result = view_all_Customer_data()
-    # st.write(result)
     df = pd.DataFrame(result, columns=['Customer_Code', 'C_Name' , 'Phone_No', 'Email_ID' , 'Gender', 'City' , 'Age'])
     with st.expander("Current Customer details"):
         st.dataframe(df)
     list_of_Customer = [i[0] for i in view_only_Customer_Code()]
-    #print(list_of_Petrolpump)
     selected_Customer = st.selectbox("Customer to Edit", list_of_Customer)
-    #print(selected_Petrolpump)
     selected_result = get_all_info_Customer(selected_Customer)
-    #print(selected_result)
-    # st.write(selected_result)
     if selected_result:
         Customer_Code = selected_result[0][0]
         C_Name = selected_result[0][1]
@@ -157,19 +153,15 @@ def update_for_Customer():
     with st.expander("Updated data"):
         st.dataframe(df2)
 
+
 def update_for_Invoice():
     result = view_all_Invoice_data()
-    # st.write(result)
     df = pd.DataFrame(result, columns=['Invoice_No', 'Date' , 'Payment_Type', 'Fuel_Amount', 'Fuel_Type', 'Discount', 'Total_Price', 'Customer_Code'])
     with st.expander("Current Invoice details"):
         st.dataframe(df)
     list_of_Invoice = [i[0] for i in view_only_Invoice_No()]
-    #print(list_of_Petrolpump)
     selected_Invoice = st.selectbox("Invoice to Edit", list_of_Invoice)
-    #print(selected_Petrolpump)
     selected_result = get_all_info_Invoice(selected_Invoice)
-    #print(selected_result)
-    # st.write(selected_result)
     if selected_result:
         Invoice_No = selected_result[0][0]
         Date = selected_result[0][1]
@@ -197,19 +189,15 @@ def update_for_Invoice():
     with st.expander("Updated data"):
         st.dataframe(df2)
 
+
 def update_for_Tanker():
     result = view_all_Tanker_data()
-    # st.write(result)
     df = pd.DataFrame(result, columns=['Tanker_ID', 'Capacity', 'pressure', 'Fuel_ID' , 'Fuel_Amount', 'Fuel_Name' , 'Fuel_Price' , 'Petrolpump_No'])
     with st.expander("Current Tanker details"):
         st.dataframe(df)
     list_of_Tankers = [i[0] for i in view_only_Tanker_ID()]
-    #print(list_of_Petrolpump)
     selected_Tanker = st.selectbox("Tankers to Edit", list_of_Tankers)
-    #print(selected_Petrolpump)
     selected_result = get_all_info_Tanker(selected_Tanker)
-    #print(selected_result)
-    # st.write(selected_result)
     
     if selected_result:
         Tanker_ID = selected_result[0][0]
