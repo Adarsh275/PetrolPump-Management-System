@@ -171,6 +171,7 @@ def edit_Tanker_data(new_Capacity,  new_pressure,  new_Fuel_ID , new_Fuel_Amount
     data = view_all_Tanker_data()
     return data
 
+
 def delete_data_Petrolpump(selected_Petrolpump):
     c.execute('DELETE FROM Petrolpump WHERE Registration_No="{}"'.format(selected_Petrolpump))
     mydb.commit()
@@ -195,19 +196,6 @@ def delete_data_Tanker(selected_Tanker):
     c.execute('DELETE FROM Tanker WHERE Tanker_ID="{}"'.format(selected_Tanker))
     mydb.commit()
 
-
-# def procedure_execute(query):
-#     c.execute(query)
-#     if "call" in query.lower():
-#         return None
-#     return c.fetchall()
-
-
-# def query_execute(query):
-#     c.execute(query)
-#     if "call" in query.lower():
-#         return None
-#     return c.fetchall()
 
 def TOTAL_Amount(tanker_id):
     query = "SET @p0='{}';".format(tanker_id)
